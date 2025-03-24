@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telehealth App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="imgs/logo.png" alt="TeleMedX Logo">
+            <p>TeleMedX</p>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#symptoms">Symptoms Checker</a></li>
+                <li><a href="#appointment">Appointment</a></li>
+                <li><a href="#video">Video Consultation</a></li>
+                <li><a href="#contact">Contact & Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-text">
+            <h1>TeleMedX Clinic</h1>
+            <p>WELCOME TO OUR CLINIC</p>
+            <p>WHERE HEALTH MEETS INNOVATION.</p>
+            <a href="#" class="btn">GET STARTED</a>
+        </div>
+        <div class="hero-image">
+            <img src="imgs/hero.png" alt="Doctor coming out of laptop">
+        </div>
+    </section>
+
+    <section id="symptoms" class="symptoms">
+        <div class="header">
+            <h2>Symptoms Checker</h2>
+        </div>
+        <div class="container">
+            <!-- Personal Data Section -->
+            <div class="section personal-data">
+                <h3>Personal Data</h3>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name"><br>
+                <label for="age">Age:</label>
+                <input type="number" id="age" placeholder="Enter your age"><br>
+                <label for="gender">Gender:</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+    
+            <!-- Symptoms Input Section -->
+            <div class="section symptoms-input">
+                <h3>Enter Your Symptoms</h3>
+                <input type="text" id="symptom-input" placeholder="e.g., headache, fever">
+                <button class="submit-btn">Check Diagnosis</button>
+            </div>
+    
+            <!-- Diagnosis Section -->
+            <div class="section diagnosis">
+                <h3>Diagnosis</h3>
+                <textarea id="diagnosis-output" placeholder="Diagnosis results will appear here..." rows="5" readonly></textarea>
+            </div>
+            <!-- Diagnosis Section -->
+<div class="section diagnosis">
+    <h3>Diagnosis</h3>
+    <textarea id="diagnosis-output" placeholder="Diagnosis results will appear here..." rows="5" readonly></textarea>
+    
+    <!-- Proceed to Book Button -->
+    <button id="proceed-to-book" class="book-btn" style="display: none;">Proceed to Book</button>
+</div>
+
+        </div>
+    </section>
+    
+    
+    
+    <div id="appointment" class="appointmnet">
+        <form class="appointment-form">
+            <div class="section">
+                <h3>Choose a Specialist</h3>
+                <select required>
+                    <option value="" disabled selected>Select a doctor</option>
+                    <option value="general">General Physician</option>
+                    <option value="cardio">Cardiologist</option>
+                    <option value="derma">Dermatologist</option>
+                    <option value="ortho">Orthopedic Surgeon</option>
+                    <option value="pedi">Pediatrician</option>
+                </select>
+            </div>
+    
+            <div class="datepicker">
+                <h3>Pick a Date & Time</h3>
+                <label>Date:</label>
+                <input type="date" required>
+                <label>Time:</label>
+                <input type="time" required>
+            </div>
+    
+            <button type="submit" class="book-btn">Confirm Appointment</button>
+        </form>
+    </div>
+     <!-- Video Conferencing Section -->
+     <div id="video" class="video-section">
+        <h3>Your Video Consultation</h3>
+        <p>Start your video call below:</p>
+        <iframe 
+            src="https://meet.jit.si/medirafiki-default"
+            style="width: 100%; height: 500px; border: 2px solid #0056b3;"
+            allow="camera; microphone; fullscreen">
+        </iframe>
+    </div>
+
+    <!-- Contact & Feedback Section -->
+    <div id="contact" class="contact-feedback">
+        <h3>Contact Us & Provide Feedback</h3>
+        <p>Have any questions or feedback? Let us know!</p>
+
+        <form class="feedback-form">
+            <div class="input-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="message">Your Message:</label>
+                <textarea id="message" rows="4" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+
+        <!-- Social Media Links -->
+        <div class="social-icons">
+            <a href="#" class="icon x"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

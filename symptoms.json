@@ -1,0 +1,62 @@
+{
+    "fever": {
+        "conditions": ["Flu", "COVID-19", "Malaria", "Dengue Fever"],
+        "description": "Fever is a temporary increase in body temperature, often due to an illness.",
+        "severity": "Mild to Severe",
+        "advice": "Monitor temperature, stay hydrated, take rest, and consult a doctor if fever persists over 3 days."
+    },
+    "cough": {
+        "conditions": ["Common Cold", "Bronchitis", "COVID-19", "Asthma"],
+        "description": "Coughing is a reflex that helps clear airways of mucus or irritants.",
+        "severity": "Mild to Moderate",
+        "advice": "Drink warm fluids, avoid smoking, and consult a doctor if cough lasts more than 2 weeks."
+    },
+    "headache": {
+        "conditions": ["Migraine", "Tension Headache", "Sinusitis", "High Blood Pressure"],
+        "description": "A headache can be caused by stress, dehydration, sinus infections, or underlying health conditions.",
+        "severity": "Mild to Severe",
+        "advice": "Rest in a dark room, stay hydrated, and take pain relief medication if needed."
+    },
+    "chest pain": {
+        "conditions": ["Heart Attack", "Pneumonia", "Gastroesophageal Reflux Disease (GERD)", "Pulmonary Embolism"],
+        "description": "Chest pain can be a sign of serious heart or lung conditions.",
+        "severity": "Severe",
+        "advice": "Seek immediate medical attention if chest pain is severe or accompanied by shortness of breath."
+    },
+    "fatigue": {
+        "conditions": ["Anemia", "Diabetes", "Thyroid Disorder", "Depression"],
+        "description": "Fatigue is persistent tiredness that can be caused by various medical conditions.",
+        "severity": "Mild to Moderate",
+        "advice": "Maintain a balanced diet, get enough sleep, and consult a doctor if fatigue persists."
+    },
+    "nausea": {
+        "conditions": ["Food Poisoning", "Pregnancy", "Gastritis", "Motion Sickness"],
+        "description": "Nausea is a sensation of discomfort and the urge to vomit.",
+        "severity": "Mild to Moderate",
+        "advice": "Eat light foods, stay hydrated, and avoid strong odors. Seek medical help if vomiting is severe."
+    },
+    "shortness of breath": {
+        "conditions": ["Asthma", "Pneumonia", "Anxiety", "Chronic Obstructive Pulmonary Disease (COPD)"],
+        "description": "Difficulty breathing can indicate respiratory or cardiac issues.",
+        "severity": "Moderate to Severe",
+        "advice": "Avoid strenuous activities, practice deep breathing, and seek emergency care if severe."
+    },
+    "stomach pain": {
+        "conditions": ["Gastritis", "Appendicitis", "Irritable Bowel Syndrome (IBS)", "Kidney Stones"],
+        "description": "Abdominal pain can be caused by digestive issues or infections.",
+        "severity": "Mild to Severe",
+        "advice": "Avoid spicy foods, stay hydrated, and see a doctor if pain is persistent or worsening."
+    },
+    "dizziness": {
+        "conditions": ["Vertigo", "Low Blood Pressure", "Anemia", "Dehydration"],
+        "description": "Dizziness can be caused by issues with circulation, inner ear problems, or dehydration.",
+        "severity": "Mild to Moderate",
+        "advice": "Sit down, drink fluids, and consult a doctor if dizziness is frequent."
+    },
+    "joint pain": {
+        "conditions": ["Arthritis", "Gout", "Lupus", "Injury"],
+        "description": "Joint pain can be due to inflammation, autoimmune diseases, or physical injury.",
+        "severity": "Mild to Severe",
+        "advice": "Apply ice, rest the affected joint, and seek medical advice if pain persists."
+    }
+}

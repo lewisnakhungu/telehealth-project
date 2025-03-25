@@ -6,18 +6,36 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 1.5cm; /* Add padding to leave space from the edges */
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333;
+}
+
+.container {
+    width: calc(100% - 3cm); /* Adjust width to account for body padding */
+    margin: 0 auto;
+    padding: 20px;
+}
+
 /* Navigation Bar */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #0056b3;
-    padding: 15px 30px;a
+    padding: 15px 30px;
     color: white;
     position: fixed;
-    width: 100%;
-    top: 0;
+    width: calc(100% - 3cm); /* Adjust width to account for body padding */
+    top: 1.5cm; /* Adjust top position to account for body padding */
+    left: 1.5cm; /* Adjust left position to account for body padding */
+    right: 1.5cm; /* Adjust right position to account for body padding */
     z-index: 1000;
+    border-radius: 10px; /* Add border radius for consistency */
 }
 
 nav .logo {
@@ -70,6 +88,7 @@ html {
 
 .hero-text {
     width: 50%;
+    padding-left: 40px;
 }
 
 .hero-text h1 {
@@ -154,13 +173,26 @@ html {
     color: #2c3e50;
 }
 
-.symptoms-form {
-    max-width: 800px;
-    margin: 0 auto;
+.symptoms-diagnosis-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.symptoms-form, .diagnosis-box {
+    flex: 1;
     background-color: #f9f9f9;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.symptoms-form {
+    max-width: 48%;
+}
+
+.diagnosis-box {
+    max-width: 48%;
 }
 
 .form-group {
@@ -183,12 +215,13 @@ html {
     min-height: 150px;
 }
 
-.diagnosis-box {
-    margin-top: 30px;
-    background-color: #e8f4fc;
-    padding: 20px;
+.diagnosis-box textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
     border-radius: 4px;
-    border-left: 4px solid #3498db;
+    resize: vertical;
+    min-height: 150px;
 }
 
 /* Appointments Section */
@@ -298,4 +331,97 @@ footer {
         flex: 100%;
         margin-bottom: 15px;
     }
+}
+
+/* Section Styles */
+section {
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #e6f7ff; /* Light blue background */
+}
+
+.section-title {
+    color: #0056b3; /* Darker blue for titles */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Button Styles */
+.btn {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #0056b3; /* Darker blue for labels */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #007bff; /* Blue border */
+    border-radius: 5px;
+    background-color: #ffffff; /* White background */
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-col {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-col:last-child {
+    margin-right: 0;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #cceeff; /* Lighter blue background */
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 2px solid #0056b3; /* Darker blue border */
 }

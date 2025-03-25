@@ -7,24 +7,26 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<header>
-    <nav>
-        <div class="logo">
-            <img src="imgs/logo.png" alt="TeleMedX Logo">
-            <p>TeleMedX</p>
-        </div>
-        <div>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#symptoms">Symptoms Checker</a></li>
-                <li><a href="#appointment">Appointment</a></li>
-                <li><a href="#video">Video Consultation</a></li>
-                <li><a href="#contact">Contact & Feedback</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
 <body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png" alt="TeleMedX Logo">
+                <p>TeleMedX</p>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#symptoms">Symptoms Checker</a></li>
+                    <li><a href="#appointments">Appointment</a></li>
+                    <li><a href="#conference">Video Consultation</a></li>
+                    <li><a href="#contacts">Contact & Feedback</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-text">
@@ -38,6 +40,7 @@
         </div>
     </section>
 
+    <!-- Symptoms Checker Section -->
     <section class="symptoms-section" id="symptoms">
         <div class="container">
             <h2 class="section-title">Check Your Symptoms</h2>
@@ -45,13 +48,13 @@
                 <div class="symptoms-form">
                     <div class="form-group">
                         <label for="symptoms">Input symptoms</label>
-                        <textarea id="symptoms" placeholder="Describe your symptoms here..."></textarea>
+                        <textarea id="symptoms" class="symptoms-input" placeholder="Describe your symptoms here..."></textarea>
                     </div>
-                    <button type="submit" class="btn">Submit</button>
+                    <button type="submit" class="btn submit-btn">Submit</button>
                 </div>
                 <div class="diagnosis-box">
                     <h3>Diagnosis</h3>
-                    <textarea readonly placeholder="Your diagnosis will appear here..."></textarea>
+                    <textarea readonly class="diagnosis" placeholder="Your diagnosis will appear here..."></textarea>
                     <a href="#appointments" class="btn" style="margin-top: 15px;">Book Appointment</a>
                 </div>
             </div>
@@ -173,5 +176,7 @@
             <p>&copy; 2025 TeleMedX Clinic. All rights reserved.</p>
         </div>
     </footer>
+
+<script src="script.js"></script>
 </body>
 </html>

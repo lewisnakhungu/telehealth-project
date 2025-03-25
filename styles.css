@@ -10,13 +10,13 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 1.5cm; /* Add padding to leave space from the edges */
-    background-color: #f0f8ff; /* Light blue background */
+    padding: 1.5cm; 
+    background-color: #f0f8ff; 
     color: #333;
 }
 
 .container {
-    width: calc(100% - 3cm); /* Adjust width to account for body padding */
+    width: calc(100% - 1cm); /* Adjust width to account for body padding */
     margin: 0 auto;
     padding: 20px;
 }
@@ -81,9 +81,11 @@ html {
     justify-content: space-between;
     height: 100vh;
     padding: 80px 10%;
-    background: linear-gradient(to left, #f7f8fa, #1674cc);
+   /* background: linear-gradient(to left, #f7f8fa, #1674cc);*/
     color: white;
     text-align: left;
+    background-image:url(./imgs/land.jpg);
+    background-image:
 }
 
 .hero-text {

@@ -133,14 +133,11 @@
     <section class="video-section" id="conference">
         <div class="container">
             <h2 class="section-title">VIDEO CONSULTATION</h2>
-            <div class="video-container">
-                <!-- Video placeholder - would be replaced with actual video consultation interface -->
-                <div style="background-color: #ddd; height: 400px; display: flex; align-items: center; justify-content: center;">
-                    <h3>Video Consultation Interface Will Appear Here</h3>
-                </div>
-            </div>
+            <div id="jitsi-container" style="width: 100%; height: 600px;"></div>
+            <button id="start-meeting" class="btn">Start Consultation</button>
         </div>
     </section>
+    
 
     <!-- Contact Section -->
     <section class="contact-section" id="contacts">
@@ -178,5 +175,7 @@
     </footer>
 
 <script src="script.js"></script>
+<script src="https://meet.jit.si/external_api.js"></script>
+
 </body>
 </html>

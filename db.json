@@ -1,0 +1,24 @@
+{
+  "appointments": [
+    {
+      "id": "863d",
+      "name": "lewis robert",
+      "age": "25",
+      "email": "lokimzeee@gmail.com",
+      "phone": "+254110369207",
+      "specialist": "cardiologist",
+      "date": "2025-03-19",
+      "time": "14:15"
+    },
+    {
+      "id": "149b",
+      "name": "lewis robert",
+      "age": "22",
+      "email": "lokimzeee@gmail.com",
+      "phone": "+254110369207",
+      "specialist": "general",
+      "date": "2025-03-30",
+      "time": "19:30"
+    }
+  ]
+}

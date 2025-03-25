@@ -1,62 +1,248 @@
 {
-    "fever": {
-        "conditions": ["Flu", "COVID-19", "Malaria", "Dengue Fever"],
-        "description": "Fever is a temporary increase in body temperature, often due to an illness.",
-        "severity": "Mild to Severe",
-        "advice": "Monitor temperature, stay hydrated, take rest, and consult a doctor if fever persists over 3 days."
+    "symptoms": {
+        "fever": {
+            "description": "Elevated body temperature (>37.5°C/99.5°F)",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Malaria", "urgency": "high", "common": true},
+                {"name": "Typhoid Fever", "urgency": "high", "common": true},
+                {"name": "COVID-19", "urgency": "high", "common": true},
+                {"name": "Dengue Fever", "urgency": "medium", "common": false},
+                {"name": "Brucellosis", "urgency": "medium", "common": false},
+                {"name": "Urinary Tract Infection", "urgency": "medium", "common": true}
+            ],
+            "recommended_actions": [
+                "Take paracetamol (not aspirin) for fever reduction",
+                "Drink plenty of fluids (oral rehydration solution recommended)",
+                "Use mosquito nets to prevent malaria transmission",
+                "Seek medical attention within 24 hours if fever persists"
+            ],
+            "kenya_specific_notes": "Malaria is endemic in most parts of Kenya except high-altitude areas. Rapid diagnostic tests (RDTs) are widely available."
+        },
+        
+        "persistent_cough": {
+            "description": "Cough lasting more than 2 weeks",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Tuberculosis (TB)", "urgency": "high", "common": true},
+                {"name": "Chronic Bronchitis", "urgency": "medium", "common": true},
+                {"name": "Pneumonia", "urgency": "high", "common": true},
+                {"name": "Asthma", "urgency": "medium", "common": true},
+                {"name": "COVID-19", "urgency": "high", "common": true},
+                {"name": "Whooping Cough (Pertussis)", "urgency": "high", "common": false}
+            ],
+            "recommended_actions": [
+                "Cover mouth when coughing to prevent spread",
+                "Avoid smoking and secondhand smoke",
+                "TB testing available free at public health facilities",
+                "Seek immediate care if coughing blood or difficulty breathing"
+            ],
+            "kenya_specific_notes": "Kenya has high TB prevalence. Free diagnosis and treatment available through National TB Program."
+        },
+
+        "diarrhea": {
+            "description": "Loose, watery stools occurring more than 3 times/day",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Cholera", "urgency": "high", "common": false},
+                {"name": "Food Poisoning", "urgency": "medium", "common": true},
+                {"name": "Amebiasis", "urgency": "medium", "common": true},
+                {"name": "Giardiasis", "urgency": "medium", "common": true},
+                {"name": "Rotavirus (in children)", "urgency": "high", "common": true}
+            ],
+            "recommended_actions": [
+                "Use oral rehydration solution (ORS) immediately",
+                "Continue breastfeeding for infants",
+                "Zinc supplementation for children under 5",
+                "Seek care if blood in stool or signs of dehydration"
+            ],
+            "kenya_specific_notes": "Common during rainy seasons. Cholera outbreaks occur in flood-prone areas and urban slums."
+        },
+
+        "jaundice": {
+            "description": "Yellowing of skin and eyes",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Hepatitis A", "urgency": "high", "common": true},
+                {"name": "Hepatitis B", "urgency": "high", "common": true},
+                {"name": "Malaria (severe)", "urgency": "emergency", "common": true},
+                {"name": "Liver Cirrhosis", "urgency": "high", "common": false}
+            ],
+            "recommended_actions": [
+                "Avoid alcohol and fatty foods",
+                "Hepatitis B testing recommended",
+                "Emergency care needed for malaria with jaundice",
+                "Vaccination available for Hepatitis B"
+            ],
+            "kenya_specific_notes": "Hepatitis B prevalence ~5% in Kenya. Vaccine included in child immunization schedule."
+        },
+
+        "skin_rash": {
+            "description": "Abnormal skin changes or eruptions",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Allergic Reaction", "urgency": "medium", "common": true},
+                {"name": "Measles", "urgency": "high", "common": true},
+                {"name": "Chickenpox", "urgency": "medium", "common": true},
+                {"name": "Scabies", "urgency": "medium", "common": true},
+                {"name": "HIV-related rash", "urgency": "high", "common": false}
+            ],
+            "recommended_actions": [
+                "Avoid scratching to prevent infection",
+                "Measles vaccination available free for children",
+                "HIV testing recommended if persistent rash",
+                "Seek care if rash with fever or covers large area"
+            ],
+            "kenya_specific_notes": "Scabies common in crowded living conditions. Free HIV testing available nationwide."
+        },
+
+        "headache": {
+            "description": "Pain in any region of the head",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Migraine", "urgency": "low", "common": true},
+                {"name": "Tension Headache", "urgency": "low", "common": true},
+                {"name": "Meningitis", "urgency": "emergency", "common": false},
+                {"name": "Cerebral Malaria", "urgency": "emergency", "common": false},
+                {"name": "Hypertension", "urgency": "high", "common": true}
+            ],
+            "recommended_actions": [
+                "Rest in quiet, dark room",
+                "Check blood pressure if possible",
+                "Emergency care if stiff neck or confusion present",
+                "Limit caffeine and alcohol"
+            ],
+            "kenya_specific_notes": "Meningitis outbreaks occur in dry seasons in some regions. Vaccines available in high-risk areas."
+        },
+
+        "abdominal_pain": {
+            "description": "Pain between chest and groin",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Appendicitis", "urgency": "emergency", "common": true},
+                {"name": "Peptic Ulcer", "urgency": "high", "common": true},
+                {"name": "Intestinal Parasites", "urgency": "medium", "common": true},
+                {"name": "Ectopic Pregnancy", "urgency": "emergency", "common": false}
+            ],
+            "recommended_actions": [
+                "Avoid pain medications before diagnosis",
+                "Seek immediate care for severe localized pain",
+                "Deworming recommended every 6 months",
+                "Pregnancy test for women of childbearing age"
+            ],
+            "kenya_specific_notes": "Intestinal worms affect ~30% of population. National school deworming program exists."
+        },
+
+        "joint_pain": {
+            "description": "Discomfort in joints",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Dengue Fever", "urgency": "high", "common": false},
+                {"name": "Chikungunya", "urgency": "medium", "common": false},
+                {"name": "Rheumatoid Arthritis", "urgency": "medium", "common": true},
+                {"name": "HIV-related arthritis", "urgency": "high", "common": false}
+            ],
+            "recommended_actions": [
+                "Rest affected joints",
+                "Apply warm/cold compresses",
+                "HIV testing recommended if persistent",
+                "Mosquito bite prevention crucial"
+            ],
+            "kenya_specific_notes": "Arboviruses like chikungunya emerging in coastal regions. Free HIV care available."
+        },
+
+        "eye_problems": {
+            "description": "Redness, pain or vision changes",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Conjunctivitis", "urgency": "low", "common": true},
+                {"name": "Trachoma", "urgency": "medium", "common": true},
+                {"name": "Cataracts", "urgency": "medium", "common": true},
+                {"name": "Glaucoma", "urgency": "high", "common": false}
+            ],
+            "recommended_actions": [
+                "Wash hands frequently",
+                "Avoid sharing towels/face cloths",
+                "Seek care for vision changes or severe pain",
+                "Use clean water for face washing"
+            ],
+            "kenya_specific_notes": "Trachoma endemic in arid regions. Free cataract surgeries in government hospitals."
+        },
+
+        "fatigue": {
+            "description": "Persistent tiredness",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Anemia", "urgency": "medium", "common": true},
+                {"name": "HIV", "urgency": "high", "common": true},
+                {"name": "Diabetes", "urgency": "high", "common": true},
+                {"name": "Depression", "urgency": "medium", "common": true}
+            ],
+            "recommended_actions": [
+                "Iron-rich diet (leafy greens, beans)",
+                "HIV testing recommended",
+                "Blood sugar testing if family history of diabetes",
+                "Ensure adequate sleep"
+            ],
+            "kenya_specific_notes": "Anemia prevalence ~25% due to nutritional factors and malaria. Free HIV testing widely available."
+        },
+
+        "shortness_of_breath": {
+            "description": "Difficulty breathing",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "Pneumonia", "urgency": "emergency", "common": true},
+                {"name": "Asthma", "urgency": "high", "common": true},
+                {"name": "COVID-19", "urgency": "emergency", "common": true},
+                {"name": "Heart Disease", "urgency": "emergency", "common": false}
+            ],
+            "recommended_actions": [
+                "Seek immediate care if severe",
+                "Avoid dust and smoke",
+                "Pneumonia vaccine available for children and elderly",
+                "Sit upright to ease breathing"
+            ],
+            "kenya_specific_notes": "Pneumonia leading cause of child mortality. Free vaccines in government facilities."
+        },
+
+        "unintended_weight_loss": {
+            "description": "Losing weight without trying",
+            "common_in_kenya": true,
+            "possible_conditions": [
+                {"name": "HIV", "urgency": "high", "common": true},
+                {"name": "Tuberculosis", "urgency": "high", "common": true},
+                {"name": "Cancer", "urgency": "high", "common": false},
+                {"name": "Diabetes (uncontrolled)", "urgency": "high", "common": true}
+            ],
+            "recommended_actions": [
+                "HIV testing immediately",
+                "TB screening recommended",
+                "Nutritional support needed",
+                "Medical evaluation essential"
+            ],
+            "kenya_specific_notes": "Integrated HIV/TB clinics available nationwide with free services."
+        }
     },
-    "cough": {
-        "conditions": ["Common Cold", "Bronchitis", "COVID-19", "Asthma"],
-        "description": "Coughing is a reflex that helps clear airways of mucus or irritants.",
-        "severity": "Mild to Moderate",
-        "advice": "Drink warm fluids, avoid smoking, and consult a doctor if cough lasts more than 2 weeks."
-    },
-    "headache": {
-        "conditions": ["Migraine", "Tension Headache", "Sinusitis", "High Blood Pressure"],
-        "description": "A headache can be caused by stress, dehydration, sinus infections, or underlying health conditions.",
-        "severity": "Mild to Severe",
-        "advice": "Rest in a dark room, stay hydrated, and take pain relief medication if needed."
-    },
-    "chest pain": {
-        "conditions": ["Heart Attack", "Pneumonia", "Gastroesophageal Reflux Disease (GERD)", "Pulmonary Embolism"],
-        "description": "Chest pain can be a sign of serious heart or lung conditions.",
-        "severity": "Severe",
-        "advice": "Seek immediate medical attention if chest pain is severe or accompanied by shortness of breath."
-    },
-    "fatigue": {
-        "conditions": ["Anemia", "Diabetes", "Thyroid Disorder", "Depression"],
-        "description": "Fatigue is persistent tiredness that can be caused by various medical conditions.",
-        "severity": "Mild to Moderate",
-        "advice": "Maintain a balanced diet, get enough sleep, and consult a doctor if fatigue persists."
-    },
-    "nausea": {
-        "conditions": ["Food Poisoning", "Pregnancy", "Gastritis", "Motion Sickness"],
-        "description": "Nausea is a sensation of discomfort and the urge to vomit.",
-        "severity": "Mild to Moderate",
-        "advice": "Eat light foods, stay hydrated, and avoid strong odors. Seek medical help if vomiting is severe."
-    },
-    "shortness of breath": {
-        "conditions": ["Asthma", "Pneumonia", "Anxiety", "Chronic Obstructive Pulmonary Disease (COPD)"],
-        "description": "Difficulty breathing can indicate respiratory or cardiac issues.",
-        "severity": "Moderate to Severe",
-        "advice": "Avoid strenuous activities, practice deep breathing, and seek emergency care if severe."
-    },
-    "stomach pain": {
-        "conditions": ["Gastritis", "Appendicitis", "Irritable Bowel Syndrome (IBS)", "Kidney Stones"],
-        "description": "Abdominal pain can be caused by digestive issues or infections.",
-        "severity": "Mild to Severe",
-        "advice": "Avoid spicy foods, stay hydrated, and see a doctor if pain is persistent or worsening."
-    },
-    "dizziness": {
-        "conditions": ["Vertigo", "Low Blood Pressure", "Anemia", "Dehydration"],
-        "description": "Dizziness can be caused by issues with circulation, inner ear problems, or dehydration.",
-        "severity": "Mild to Moderate",
-        "advice": "Sit down, drink fluids, and consult a doctor if dizziness is frequent."
-    },
-    "joint pain": {
-        "conditions": ["Arthritis", "Gout", "Lupus", "Injury"],
-        "description": "Joint pain can be due to inflammation, autoimmune diseases, or physical injury.",
-        "severity": "Mild to Severe",
-        "advice": "Apply ice, rest the affected joint, and seek medical advice if pain persists."
+    
+    "kenya_health_context": {
+        "common_endemic_diseases": ["Malaria", "TB", "HIV", "Typhoid", "Hepatitis"],
+        "emergency_numbers": {
+            "national_ambulance": "999",
+            "red_cross": "1199",
+            "poison_control": "020-2713142"
+        },
+        "prevention_tips": [
+            "Sleep under insecticide-treated nets (ITNs) to prevent malaria",
+            "Practice safe water and food hygiene to prevent typhoid",
+            "Get vaccinated against Hepatitis B, measles",
+            "Regular deworming every 6 months",
+            "Use condoms consistently to prevent HIV"
+        ],
+        "public_health_facilities": {
+            "level_5_hospitals": 11,
+            "county_hospitals": 94,
+            "health_centers": 1500,
+            "dispensaries": 6000
+        }
     }
 }

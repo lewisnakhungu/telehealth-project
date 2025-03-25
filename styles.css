@@ -546,3 +546,22 @@ footer {
         height: 300px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .symptoms-diagnosis-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .symptoms-form, 
+    .diagnosis-box, 
+    .appointment-form, 
+    .contact-form {
+        max-width: 100%; 
+    }
+
+    .symptoms-form textarea {
+        width: 100%;  
+        min-height: 120px; /* Adjust height for better input */
+    }
+}

@@ -84,8 +84,6 @@ html {
     background: linear-gradient(to left, #f7f8fa, #1674cc);
     color: white;
     text-align: left;
-    /*background-image:url(./imgs/land.jpg);*/
-    
 }
 
 .hero-text {
@@ -180,7 +178,7 @@ html {
         flex-direction: column;
     }
 
-    .symptoms-form, .diagnosis-box {
+    .symptoms-form, .diagnosis-box, .appointment-form, .contact-form {
         max-width: 100%;
         margin-bottom: 20px;
     }
@@ -188,7 +186,7 @@ html {
 
 /* Symptoms Checker Section */
 .symptoms-section {
-   padding: 40px 0;
+    padding: 40px 0;
     background-color: white;
 }
 
@@ -433,4 +431,118 @@ footer {
     text-align: center;
     padding: 10px 0;
     border-top: 2px solid #0056b3; /* Darker blue border */
+}
+
+/*mobile view */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul {
+        flex-direction: column;
+        display: none; /* Hide menu initially */
+        width: 100%;
+        text-align: center;
+        background: #0056b3;
+        padding: 10px 0;
+    }
+    nav ul.show {
+        display: flex; /* Show menu when toggled */
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+    }
+}
+@media screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 40px 20px;
+    }
+    .hero-text, .hero-image {
+        width: 100%;
+        padding: 0;
+    }
+    .hero-text h1 {
+        font-size: 32px;
+    }
+    .hero-image img {
+        max-width: 80%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+    .form-col {
+        width: 100%;
+        margin-right: 0;
+    }
+    .symptoms-diagnosis-container {
+        flex-direction: column;
+    }
+    .diagnosis-box, .appointment-form, .contact-form {
+        max-width: 100%;
+    }
+}
+.video-section {
+    padding: 50px 0;
+    background-color: white;
+    text-align: center;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.video-container video,
+.video-container iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Style the Join Button */
+.video-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.video-btn:hover {
+    background: #0056b3;
+}
+
+/* Make Video Responsive */
+@media screen and (max-width: 768px) {
+    .video-container {
+        padding: 15px;
+    }
+    .video-container video,
+    .video-container iframe {
+        height: 300px;
+    }
 }

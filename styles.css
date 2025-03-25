@@ -81,11 +81,11 @@ html {
     justify-content: space-between;
     height: 100vh;
     padding: 80px 10%;
-   /* background: linear-gradient(to left, #f7f8fa, #1674cc);*/
+    background: linear-gradient(to left, #f7f8fa, #1674cc);
     color: white;
     text-align: left;
-    background-image:url(./imgs/land.jpg);
-    background-image:
+    /*background-image:url(./imgs/land.jpg);*/
+    
 }
 
 .hero-text {
@@ -188,7 +188,7 @@ html {
 
 /* Symptoms Checker Section */
 .symptoms-section {
-gi    padding: 40px 0;
+   padding: 40px 0;
     background-color: white;
 }
 

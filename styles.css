@@ -159,6 +159,28 @@ html {
     .hero-image img {
         max-width: 100%;
     }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .form-col, .date-picker, .time-picker {
+        flex: 100%;
+        margin-bottom: 15px;
+    }
+
+    .symptoms-diagnosis-container {
+        flex-direction: column;
+    }
+
+    .symptoms-form, .diagnosis-box {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
 }
 
 /* Symptoms Checker Section */
@@ -316,21 +338,6 @@ footer {
     text-align: center;
     padding: 30px 0;
     margin-top: 50px;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .hero h1 {
-        font-size: 36px;
-    }
-    
-    .form-col, .date-picker, .time-picker {
-        flex: 100%;
-        margin-bottom: 15px;
-    }
 }
 
 /* Section Styles */

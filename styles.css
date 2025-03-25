@@ -30,12 +30,12 @@ nav {
     padding: 15px 30px;
     color: white;
     position: fixed;
-    width: calc(100% - 3cm); /* Adjust width to account for body padding */
-    top: 1.5cm; /* Adjust top position to account for body padding */
-    left: 1.5cm; /* Adjust left position to account for body padding */
-    right: 1.5cm; /* Adjust right position to account for body padding */
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    border-radius: 10px; /* Add border radius for consistency */
+    border-radius: 0;
 }
 
 nav .logo {
@@ -111,6 +111,7 @@ html {
     font-size: 18px;
     text-decoration: none;
     border-radius: 5px;
+    text-align: center;
 }
 
 .btn:hover {
@@ -185,13 +186,13 @@ html {
 
 /* Symptoms Checker Section */
 .symptoms-section {
-    padding: 80px 0;
+    padding: 40px 0; /* Reduce padding to create more space */
     background-color: white;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Reduce margin-bottom to create more space */
     color: #2c3e50;
 }
 
@@ -210,11 +211,14 @@ html {
 }
 
 .symptoms-form {
-    max-width: 48%;
+    max-width: 35%; /* Reduce width of symptoms input area */
 }
 
 .diagnosis-box {
-    max-width: 48%;
+    max-width: 60%; /* Increase width of diagnosis area */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .form-group {
@@ -243,7 +247,12 @@ html {
     border: 1px solid #ddd;
     border-radius: 4px;
     resize: vertical;
-    min-height: 150px;
+    min-height: 300px; /* Increase the height of the diagnosis box */
+}
+
+.diagnosis-box .btn {
+    align-self: center; /* Center the button */
+    margin-top: 15px;
 }
 
 /* Appointments Section */
@@ -296,7 +305,7 @@ html {
 .book-btn {
     display: block;
     width: 200px;
-    margin: 30px auto 0;
+    margin: 30px auto 0; /* Center the button */
     text-align: center;
 }
 
@@ -329,6 +338,13 @@ html {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.contact-form .btn {
+    display: block;
+    width: 200px;
+    margin: 30px auto 0; /* Center the button */
+    text-align: center;
 }
 
 /* Footer */

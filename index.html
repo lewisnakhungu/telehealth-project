@@ -52,14 +52,27 @@
                     </div>
                     <button type="submit" class="btn submit-btn">Submit</button>
                 </div>
-                <div class="diagnosis-box">
-                    <h3>Diagnosis</h3>
-                    <textarea readonly class="diagnosis" placeholder="Your diagnosis will appear here..."></textarea>
+                
+                <!-- Diagnosis Table (Hidden by Default) -->
+                <div class="diagnosis-box" id="diagnosis-container" style="display: none;">
+                    <h3>Diagnosis Results</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symptom</th>
+                                <th>Condition</th>
+                                <th>Severity</th>
+                                <th>Advice</th>
+                            </tr>
+                        </thead>
+                        <tbody id="diagnosis-results"></tbody>
+                    </table>
                     <a href="#appointments" class="btn" style="margin-top: 15px;">Book Appointment</a>
                 </div>
             </div>
         </div>
     </section>
+    
 
     <!-- Appointments Section -->
     <section class="appointments-section" id="appointments">

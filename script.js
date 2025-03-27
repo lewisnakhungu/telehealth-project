@@ -1,12 +1,24 @@
 // Global API Key
 const apiKey = "$2a$10$uJZg0FIkstKez5HwKk8rbe6HgrQXhNurd8obr3QDcYvVuo5j6FUhW";
+
 document.addEventListener("DOMContentLoaded", () => {
     // Diagnosis Functionality
     const submitButton = document.querySelector(".submit-btn");
     const symptomsInput = document.querySelector(".symptoms-input");
-    const diagnosisOutput = document.querySelector(".diagnosis");
+    const diagnosisContainer = document.getElementById("diagnosis-container");
+    const diagnosisResults = document.getElementById("diagnosis-results");
 
-    if (submitButton && symptomsInput && diagnosisOutput) {
+    function getSeverityColor(severity) {
+        switch (severity.toLowerCase()) {
+            case "low": return "green";
+            case "medium": return "orange";
+            case "high": return "red";
+            case "emergency": return "purple";
+            default: return "black";
+        }
+    }
+
+    if (submitButton && symptomsInput) {
         submitButton.addEventListener("click", () => {
             const symptomsText = symptomsInput.value.trim().toLowerCase();
             if (!symptomsText) {
@@ -14,40 +26,51 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const symptomList = symptomsText.split(",").map(symptom => symptom.trim());
+            // Split symptoms by spaces or newlines
+            const symptomList = symptomsText.split(/\s+/).map(symptom => symptom.trim());
 
-            fetch("symptoms.json")
+            fetch("./symptoms.json")
                 .then(response => {
                     if (!response.ok) throw new Error("Failed to load symptoms data.");
                     return response.json();
                 })
                 .then(data => {
-                    let allConditions = new Set();
-                    let details = "";
+                    let foundConditions = [];
 
                     symptomList.forEach(symptom => {
                         const symptomKey = Object.keys(data.symptoms).find(key => key.toLowerCase() === symptom);
                         if (symptomKey) {
                             const symptomData = data.symptoms[symptomKey];
-                            const conditions = symptomData.possible_conditions.map(c => c.name);
-                            conditions.forEach(c => allConditions.add(c));
-
-                            details += `
-Symptom: ${symptomKey.toUpperCase()}
-Possible Conditions: ${conditions.join(", ")}
-Description: ${symptomData.description}
-Severity: ${symptomData.possible_conditions.map(c => `${c.name} (${c.urgency})`).join(", ")}
-Kenya Context: ${symptomData.kenya_specific_notes}
-Advice: ${symptomData.recommended_actions.join(", ")}
------------------
-`;
+                            symptomData.possible_conditions.forEach(condition => {
+                                foundConditions.push({
+                                    symptom: symptomKey,
+                                    condition: condition.name,
+                                    severity: condition.urgency,
+                                    advice: symptomData.recommended_actions.join(", ")
+                                });
+                            });
                         }
                     });
 
-                    diagnosisOutput.value = allConditions.size > 0 ? details : "No matching conditions found. Please consult a doctor.";
+                    if (foundConditions.length > 0) {
+                        diagnosisResults.innerHTML = foundConditions.map(entry => `
+                            <tr>
+                                <td>${entry.symptom}</td>
+                                <td>${entry.condition}</td>
+                                <td style="color: ${getSeverityColor(entry.severity)}; font-weight:bold;">
+                                    ${entry.severity}
+                                </td>
+                                <td>${entry.advice}</td>
+                            </tr>
+                        `).join("");
+                        diagnosisContainer.style.display = "block";
+                    } else {
+                        diagnosisResults.innerHTML = "<tr><td colspan='4'>No matching conditions found. Please consult a doctor.</td></tr>";
+                        diagnosisContainer.style.display = "block";
+                    }
                 })
                 .catch(error => {
-                    console.error("❌ Error:", error);
+                    console.error("❌ Error fetching diagnosis:", error);
                     alert("⚠ Error fetching diagnosis.");
                 });
         });
@@ -221,8 +244,9 @@ Advice: ${symptomData.recommended_actions.join(", ")}
             }
         });
     }
-});
-const menuToggle = document.getElementById("menu-toggle");
+
+    // Menu Toggle
+    const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.getElementById("nav-links");
 
     if (menuToggle && navLinks) {
@@ -230,3 +254,4 @@ const menuToggle = document.getElementById("menu-toggle");
             navLinks.classList.toggle("active");
         });
     }
+});

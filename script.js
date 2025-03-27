@@ -166,3 +166,67 @@ Advice: ${symptomData.recommended_actions.join(", ")}
         });
     }
 });
+  // contact section
+ 
+const submitFeedback = document.getElementById("submit-feedback");
+
+if (submitFeedback) {
+    submitFeedback.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        const contactName = document.getElementById("contact-name").value.trim();
+        const contactEmail = document.getElementById("contact-email").value.trim();
+        const contactFeedback = document.getElementById("feedback").value.trim();
+
+        if (!contactName || !contactEmail || !contactFeedback) {
+            alert("⚠ Please fill out all the fields.");
+            return;
+        }
+
+        const feedback = {
+            id: Date.now(),
+            contactName,
+            contactEmail,
+            contactFeedback
+        };
+
+        const jsonBinURL = "https://api.jsonbin.io/v3/b/67e513fc8960c979a5795749";
+        const apiKey = "$2a$10$ZfCf8N58PAXmNVuDZfvXDOAk3psSJ6D5nRv0Br3MXuoxM0pslEMU.";
+
+        try {
+            // Fetch existing feedbacks
+            const response = await fetch(jsonBinURL, {
+                method: "GET",
+                headers: { "X-Master-Key": apiKey }
+            });
+
+            if (!response.ok) throw new Error("Failed to fetch feedbacks.");
+
+            const data = await response.json();
+            const feedbacks = data.record?.feedbacks || []; // Ensure feedbacks is an array
+
+            // Add the new feedback
+            feedbacks.push(feedback);
+
+            // Update JSONBin with the new feedback
+            const updateResponse = await fetch(jsonBinURL, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Master-Key": apiKey
+                },
+                body: JSON.stringify({ feedbacks })
+            });
+
+            if (!updateResponse.ok) throw new Error("Failed to update feedback.");
+
+            alert("🎉 Feedback submitted successfully!");
+            document.getElementById("contact-name").value = "";
+            document.getElementById("contact-email").value = "";
+            document.getElementById("feedback").value = "";
+        } catch (error) {
+            console.error("❌ Error submitting feedback:", error);
+            alert("⚠ Failed to submit feedback. Please try again later.");
+        }
+    });
+}

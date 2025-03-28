@@ -60,9 +60,11 @@ Frontend: HTML, CSS, JavaScript
 
 API Integration: JSONBin (for appointment tracking)
 
-Video Conferencing: Jitsi Meet
+Video Conferencing: Jitsi Meet api
 
-Symptoms Database: Local JSON dataset (to be expanded with DiseasesOutput.json)
+Symptoms Database: API (jsonbin)
+
+feedback tracking : jsonbin api
 
 #Future Enhancements
 
@@ -70,6 +72,7 @@ Symptoms Database: Local JSON dataset (to be expanded with DiseasesOutput.json)
 🔹 Expanded Disease Dataset - Incorporate DiseasesOutput.json for more accurate results.
 🔹 User Authentication - Add login/signup for personalized health tracking.
 🔹 Prescription Management - Allow doctors to send prescriptions digitally.
+
 
 #Contributing
 

@@ -86,7 +86,7 @@ html {
     padding: 100px 10%;
     min-height: 100vh;
     background:  
-                url('./imgs/land3.jpg') no-repeat center center/cover !important;
+                url('./imgs/hert.jpg') no-repeat center center/cover !important;
     color: white;
     text-align: left;
     position: relative;
@@ -122,7 +122,7 @@ html {
     display: inline-block;
     margin-top: 20px;
     padding: 15px 30px;
-    background: #0056b3; 
+    background: #032142; 
     color: white;
     font-weight: bold;
     font-size: 18px;

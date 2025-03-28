@@ -1,30 +1,86 @@
-# telehealth-project
-Project Owner: Lewis Robert Nakhungu
-Project Name: Telehealth Clinic
+#TeleMedX - Telehealth Web App
 
-Problem Statement
-The objective of this project is to create a web application where the client(patient) can access fast, timely, and accurate access to medical practitioners for consultation on minor and major cases. This will promote better health-seeking behaviors, especially among the working population while also saving them time and costs incurred whilst seeking these services.
+TeleMedX is a web-based telehealth application designed to improve access to healthcare by allowing users to check symptoms, book appointments with specialists, and conduct video consultations.
 
+#Features
 
-Solution
+✅ Symptom Checker - Users can input symptoms and receive possible conditions with recommended actions.
+✅ Appointment Booking - Users can schedule consultations with healthcare professionals.
+✅ Video Consultations - Powered by Jitsi Meet for secure virtual consultations.
+✅ Feedback Submission - Patients can provide feedback on their consultations.
 
-Create an online platform that allows patients to have a one-on-one session with the doctor through video conferencing.
+#Getting Started
 
-MVP
+1. Prerequisites
+Ensure you have the following installed:
 
-Have a user sign-in page.
-Basic symptom checker
-Appointment booking page.
-Video conferencing enabled.
-API URL
-https://api.infermedica.com/v3
-https://meet.jit.si
-https://calendly.com
+A modern web browser (Chrome, Firefox, Edge)
 
+A live web server (e.g., VS Code Live Server, XAMPP)
 
+A JSON storage API (e.g., JSONBin) for appointment tracking
 
+#2. Installation
 
-Github link
+Clone the repository:
 
-https://github.com/lewisnakhungu/telehealth-project
+bash
+Copy
+Edit
+git clone https://github.com/your-username/TeleMedX.git
+cd TeleMedX
+Open index.html in a browser.
+
+#Usage Guide
+
+Symptom Checker
+Enter symptoms in the input field.
+
+Click Check Symptoms to get possible conditions.
+
+View recommended actions.
+
+#Booking an Appointment
+
+Fill in the required details (name, age, email, etc.).
+
+Select a specialist, date, and time.
+
+Click Book Appointment.
+
+#Starting a Video Consultation
+
+Click Start Meeting.
+
+The Jitsi video call will load inside the app.
+
+#Technologies Used
+
+Frontend: HTML, CSS, JavaScript
+
+API Integration: JSONBin (for appointment tracking)
+
+Video Conferencing: Jitsi Meet
+
+Symptoms Database: Local JSON dataset (to be expanded with DiseasesOutput.json)
+
+#Future Enhancements
+
+🔹 AI-Powered Diagnosis - Integrate GPT API or a medical AI API for better predictions.
+🔹 Expanded Disease Dataset - Incorporate DiseasesOutput.json for more accurate results.
+🔹 User Authentication - Add login/signup for personalized health tracking.
+🔹 Prescription Management - Allow doctors to send prescriptions digitally.
+
+#Contributing
+
+Contributions are welcome!
+
+Fork the repo
+
+Make your changes
+
+Submit a pull request
+
+#License
+This project is open-source under the MIT License.
 

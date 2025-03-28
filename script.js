@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const symptomsInput = document.querySelector(".symptoms-input");
     const diagnosisContainer = document.getElementById("diagnosis-container");
     const diagnosisResults = document.getElementById("diagnosis-results");
-
+    
     function getSeverityColor(severity) {
         switch (severity.toLowerCase()) {
             case "low": return "green";
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             default: return "black";
         }
     }
-
+    
     if (submitButton && symptomsInput) {
         submitButton.addEventListener("click", () => {
             const symptomsText = symptomsInput.value.trim().toLowerCase();
@@ -25,56 +25,70 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("⚠️ Please enter at least one symptom.");
                 return;
             }
-
-            // Split symptoms by spaces or newlines
+    
             const symptomList = symptomsText.split(/\s+/).map(symptom => symptom.trim());
-
-            fetch("./symptoms.json")
-                .then(response => {
-                    if (!response.ok) throw new Error("Failed to load symptoms data.");
-                    return response.json();
-                })
-                .then(data => {
-                    let foundConditions = [];
-
-                    symptomList.forEach(symptom => {
-                        const symptomKey = Object.keys(data.symptoms).find(key => key.toLowerCase() === symptom);
-                        if (symptomKey) {
-                            const symptomData = data.symptoms[symptomKey];
+    
+            fetch("https://api.jsonbin.io/v3/b/67e3a8dc8960c979a578aa82", {
+                headers: {
+                    "X-Master-Key": apiKey
+                }
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Failed to load symptoms data.");
+                return response.json();
+            })
+            .then(data => {
+                console.log("Fetched Data:", data);
+                const symptomsData = data.record; 
+    
+                if (!symptomsData.symptoms) {
+                    throw new Error("Invalid data format: 'symptoms' key missing.");
+                }
+    
+                let foundConditions = [];
+    
+                symptomList.forEach(symptom => {
+                    const symptomKey = Object.keys(symptomsData.symptoms).find(key => key.toLowerCase() === symptom);
+                    if (symptomKey) {
+                        const symptomData = symptomsData.symptoms[symptomKey];
+    
+                        if (symptomData && symptomData.possible_conditions) {
                             symptomData.possible_conditions.forEach(condition => {
                                 foundConditions.push({
                                     symptom: symptomKey,
                                     condition: condition.name,
                                     severity: condition.urgency,
-                                    advice: symptomData.recommended_actions.join(", ")
+                                    advice: symptomData.recommended_actions ? symptomData.recommended_actions.join(", ") : "No specific advice."
                                 });
                             });
                         }
-                    });
-
-                    if (foundConditions.length > 0) {
-                        diagnosisResults.innerHTML = foundConditions.map(entry => `
-                            <tr>
-                                <td>${entry.symptom}</td>
-                                <td>${entry.condition}</td>
-                                <td style="color: ${getSeverityColor(entry.severity)}; font-weight:bold;">
-                                    ${entry.severity}
-                                </td>
-                                <td>${entry.advice}</td>
-                            </tr>
-                        `).join("");
-                        diagnosisContainer.style.display = "block";
-                    } else {
-                        diagnosisResults.innerHTML = "<tr><td colspan='4'>No matching conditions found. Please consult a doctor.</td></tr>";
-                        diagnosisContainer.style.display = "block";
                     }
-                })
-                .catch(error => {
-                    console.error("❌ Error fetching diagnosis:", error);
-                    alert("⚠ Error fetching diagnosis.");
                 });
+    
+                if (foundConditions.length > 0) {
+                    diagnosisResults.innerHTML = foundConditions.map(entry => `
+                        <tr>
+                            <td>${entry.symptom}</td>
+                            <td>${entry.condition}</td>
+                            <td style="color: ${getSeverityColor(entry.severity)}; font-weight:bold;">
+                                ${entry.severity}
+                            </td>
+                            <td>${entry.advice}</td>
+                        </tr>
+                    `).join("");
+                    diagnosisContainer.style.display = "block";
+                } else {
+                    diagnosisResults.innerHTML = "<tr><td colspan='4'>No matching conditions found. Please consult a doctor.</td></tr>";
+                    diagnosisContainer.style.display = "block";
+                }
+            })
+            .catch(error => {
+                console.error("❌ Error fetching diagnosis:", error);
+                alert("⚠ Error fetching diagnosis.");
+            });
         });
     }
+    
 
     // Appointment Booking
     const bookButton = document.querySelector(".book-btn");

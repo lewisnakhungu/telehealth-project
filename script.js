@@ -92,6 +92,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Appointment Booking
     const bookButton = document.querySelector(".book-btn");
+    const appointmentsContainer = document.getElementById("appointments-container");
+
+    async function fetchAndDisplayAppointments() {
+        const jsonBinURL = "https://api.jsonbin.io/v3/b/67e4d92a8561e97a50f3a751";
+
+        try {
+            const response = await fetch(jsonBinURL, {
+                method: "GET",
+                headers: { "X-Master-Key": apiKey }
+            });
+
+            if (!response.ok) throw new Error("Failed to fetch existing appointments.");
+
+            const data = await response.json();
+            const appointments = data.record?.appointments || [];
+
+            
+            appointmentsContainer.innerHTML = "";
+
+            
+            appointments.forEach(appointment => {
+                const appointmentItem = document.createElement("li");
+                appointmentItem.innerHTML = `
+                    <strong>${appointment.name}</strong> (${appointment.age} years)<br>
+                    <em>${appointment.specialist}</em><br>
+                    ${appointment.date} at ${appointment.time}<br>
+                    <small>${appointment.email} | ${appointment.phone}</small>
+                `;
+                appointmentsContainer.appendChild(appointmentItem);
+            });
+        } catch (error) {
+            console.error("❌ Error fetching appointments:", error);
+            alert("⚠ Failed to fetch appointments.");
+        }
+    }
 
     if (bookButton) {
         bookButton.addEventListener("click", async (event) => {
@@ -148,13 +183,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!updateResponse.ok) throw new Error("Failed to update appointments.");
 
                 alert("🎉 Appointment booked successfully!");
-               
+
+                // Clear the form
+                document.getElementById("name").value = "";
+                document.getElementById("age").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("phone").value = "";
+                document.getElementById("specialist").value = "";
+                document.getElementById("date").value = "";
+                document.getElementById("time").value = "";
+
+                // Re-display
+                fetchAndDisplayAppointments();
             } catch (error) {
                 console.error("❌ Error:", error);
                 alert("⚠ Failed to book appointment.");
             }
         });
     }
+
+    // Fetch and Display appointments on page load
+    fetchAndDisplayAppointments();
 
     // Jitsi Meet Functionality
     const startMeetingButton = document.getElementById("start-meeting");

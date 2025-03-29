@@ -78,66 +78,30 @@
     <section class="appointments-section" id="appointments">
         <div class="container">
             <h2 class="section-title">APPOINTMENTS</h2>
-            <div class="appointment-form">
-                <h3>Personal Details (biodata)</h3>
-                <div class="form-row">
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" placeholder="Your full name" required>
-                        </div>
-                    </div>
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="age">Age:</label>
-                            <input type="number" id="age" placeholder="Your age" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" placeholder="Your email address" required>
-                        </div>
-                    </div>
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="phone">Phone number:</label>
-                            <input type="tel" id="phone" placeholder="Your phone number" required>
-                        </div>
-                    </div>
-                </div>
-                
-                <h3 style="margin-top: 30px;">Choose a specialist/case</h3>
-                <div class="form-group">
-                    <select id="specialist">
-                        <option value="">Select a specialist</option>
-                        <option value="cardiologist">Cardiologist</option>
-                        <option value="dermatologist">Dermatologist</option>
-                        <option value="neurologist">Neurologist</option>
-                        <option value="pediatrician">Pediatrician</option>
-                        <option value="general">General Physician</option>
+            <div class="appointment-section">
+                <form class="appointment-form">
+                    <h2>Book an Appointment</h2>
+                    <input id="name" type="text" placeholder="Name" required>
+                    <input id="age" type="number" placeholder="Age" required>
+                    <input id="email" type="email" placeholder="Email" required>
+                    <input id="phone" type="tel" placeholder="Phone" required>
+                    <select id="specialist" required>
+                        <option value="" disabled selected>Select Specialist</option>
+                        <option value="Cardiologist">Cardiologist</option>
+                        <option value="Dermatologist">Dermatologist</option>
+                        <option value="Pediatrician">Pediatrician</option>
                     </select>
+                    <input id="date" type="date" required>
+                    <input id="time" type="time" required>
+                    <button class="book-btn" type="submit">Book Appointment</button>
+                </form>
+
+                <div class="appointments-list">
+                    <h2>Booked Appointments</h2>
+                    <ul id="appointments-container">
+                        <!-- Appointments will be dynamically inserted here -->
+                    </ul>
                 </div>
-                
-                <h3 style="margin-top: 30px;">Pick date & Time</h3>
-                <div class="date-time-picker">
-                    <div class="date-picker">
-                        <div class="form-group">
-                            <label for="date">Date:</label>
-                            <input type="date" id="date">
-                        </div>
-                    </div>
-                    <div class="time-picker">
-                        <div class="form-group">
-                            <label for="time">Time:</label>
-                            <input type="time" id="time">
-                        </div>
-                    </div>
-                </div>
-                
-                <button type="submit" class="btn book-btn">BOOK</button>
             </div>
         </div>
     </section>

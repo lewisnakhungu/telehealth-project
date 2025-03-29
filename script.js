@@ -112,19 +112,68 @@ document.addEventListener("DOMContentLoaded", () => {
             appointmentsContainer.innerHTML = "";
 
             
-            appointments.forEach(appointment => {
+            appointments.forEach((appointment, index) => {
                 const appointmentItem = document.createElement("li");
                 appointmentItem.innerHTML = `
                     <strong>${appointment.name}</strong> (${appointment.age} years)<br>
                     <em>${appointment.specialist}</em><br>
                     ${appointment.date} at ${appointment.time}<br>
                     <small>${appointment.email} | ${appointment.phone}</small>
+                    <button class="delete-btn" data-index="${index}">Delete</button>
                 `;
                 appointmentsContainer.appendChild(appointmentItem);
+            });
+
+            
+            const deleteButtons = document.querySelectorAll(".delete-btn");
+            deleteButtons.forEach(button => {
+                button.addEventListener("click", async (event) => {
+                    const index = event.target.getAttribute("data-index");
+                    await deleteAppointment(index);
+                });
             });
         } catch (error) {
             console.error("❌ Error fetching appointments:", error);
             alert("⚠ Failed to fetch appointments.");
+        }
+    }
+
+    async function deleteAppointment(index) {
+        const jsonBinURL = "https://api.jsonbin.io/v3/b/67e4d92a8561e97a50f3a751";
+
+        try {
+            const response = await fetch(jsonBinURL, {
+                method: "GET",
+                headers: { "X-Master-Key": apiKey }
+            });
+
+            if (!response.ok) throw new Error("Failed to fetch existing appointments.");
+
+            const data = await response.json();
+            const appointments = data.record?.appointments || [];
+
+            
+            appointments.splice(index, 1);
+
+            
+            const updateResponse = await fetch(jsonBinURL, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Master-Key": apiKey
+                },
+                body: JSON.stringify({ appointments })
+            });
+
+            if (!updateResponse.ok) throw new Error("Failed to update appointments.");
+
+            alert("🗑 Appointment deleted successfully!");
+
+            
+            fetchAndDisplayAppointments();
+        } catch (error) {
+            console.error("❌ Error deleting appointment:", error);
+            alert("⚠ Failed to delete appointment.");
         }
     }
 
@@ -193,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("date").value = "";
                 document.getElementById("time").value = "";
 
-                // Re-display
+                
                 fetchAndDisplayAppointments();
             } catch (error) {
                 console.error("❌ Error:", error);
@@ -202,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Fetch and Display appointments on page load
+    
     fetchAndDisplayAppointments();
 
     // Jitsi Meet Functionality
